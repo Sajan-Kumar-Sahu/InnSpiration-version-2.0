@@ -10,6 +10,8 @@ public class InnSpirationAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InnSpirationAppApplication.class, args);
+		System.out.println("JWT_SECRET_KEY from ENV = " + System.getenv("JWT_SECRET_KEY"));
+		System.out.println("jwt.secretKey from SPRING = " + System.getProperty("jwt.secretKey"));
 	}
 
 }
