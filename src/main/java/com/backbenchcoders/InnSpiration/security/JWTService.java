@@ -1,11 +1,9 @@
 package com.backbenchcoders.InnSpiration.security;
 
-import com.backbenchcoders.InnSpiration.config.JWTConfig;
 import com.backbenchcoders.InnSpiration.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,17 +16,6 @@ public class JWTService {
 
     @Value("${jwt.secretKey}")
     private String jwtSecretKey;
-
-    private final JWTConfig jwtConfig;
-
-    public JWTService(JWTConfig jwtConfig) {
-        this.jwtConfig = jwtConfig;
-    }
-
-    @PostConstruct
-    public void init() {
-        System.out.println("✅ JWT SecretKey from JWTConfig = " + jwtConfig.getSecretKey());
-    }
 
     private SecretKey getSecretKey() {
         return Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8));
