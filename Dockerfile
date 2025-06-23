@@ -18,8 +18,6 @@ RUN ./mvnw dependency:resolve
 # Copy the remaining project files
 COPY src ./src
 
-RUN mvn clean compile
-
 # Build the Spring Boot application
 RUN ./mvnw clean package -DskipTests
 
