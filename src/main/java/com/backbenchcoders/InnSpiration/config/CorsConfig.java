@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:5173", "http://localhost:5174") //
+                        .allowedOrigins("https://innspiration-booking.netlify.app", "http://localhost:5173", "http://localhost:5174") //
                         // Allow React app to access
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
                         .allowedHeaders("*")
