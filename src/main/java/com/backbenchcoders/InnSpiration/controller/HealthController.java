@@ -15,18 +15,14 @@ public class HealthController {
 
     @GetMapping("/health")
     public ResponseEntity<ApiResponse<String>> healthCheck() {
-        ApiResponse<String> response = new ApiResponse<>("OK");
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("/ping-db")
-    public ResponseEntity<String> pingDb() {
         try {
             jdbcTemplate.execute("SELECT 1");
-            return ResponseEntity.ok("DB is awake");
+            return ResponseEntity.ok(new ApiResponse<>("OK - DB Connected ✅"));
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("DB error: " + e.getMessage());
+            return ResponseEntity.status(500)
+                    .body(new ApiResponse<>("ERROR - DB Not Reachable ❌: " + e.getMessage()));
         }
     }
+
 
 }
