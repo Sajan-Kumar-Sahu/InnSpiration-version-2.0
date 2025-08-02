@@ -23,6 +23,4 @@ public class HealthController {
                     .body(new ApiResponse<>("ERROR - DB Not Reachable ❌: " + e.getMessage()));
         }
     }
-
-
 }
